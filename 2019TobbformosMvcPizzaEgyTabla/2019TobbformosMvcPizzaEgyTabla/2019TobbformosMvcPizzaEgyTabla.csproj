@@ -106,6 +106,7 @@
     <Content Include="icons\Load-icon.png" />
     <Content Include="icons\Save-icon.png" />
     <Content Include="icons\Tools-icon.png" />
+    <Content Include="sql\pizza.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
