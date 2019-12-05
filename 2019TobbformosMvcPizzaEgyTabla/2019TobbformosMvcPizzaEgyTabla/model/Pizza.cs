@@ -19,6 +19,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
             this.price = price;
         }
 
+        //validation
         public Pizza(int id, string name, string price)
         {
             this.id = id;
@@ -30,6 +31,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
             this.price = Convert.ToInt32(price);           
         }
 
+        //update metódus
         public void update(Pizza modified)
         {
             this.name = modified.getNeme();
