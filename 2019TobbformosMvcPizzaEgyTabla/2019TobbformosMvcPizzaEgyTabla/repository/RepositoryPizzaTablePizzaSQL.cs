@@ -12,6 +12,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
 {
     partial class RepositoryDatabaseTablePizza
     {
+        //Futár adatok betöltése az adatbázis táblából egy listába
         public List<Pizza> getPizzasFromDatabaseTable()
         {
             List<Pizza> pizzas = new List<Pizza>();
