@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
 {
-    partial class RepositoryFutar
+    partial class FRepository
     {
         List<Futar> futarok;
 
