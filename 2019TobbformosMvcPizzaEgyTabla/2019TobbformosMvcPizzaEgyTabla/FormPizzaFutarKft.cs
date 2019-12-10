@@ -41,5 +41,45 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         {
             tabControlPizzaFutarKFT.SelectTab("tabPagePizzak");
         }
+
+        private void buttonMegsem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonModositPizza_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonTorolPizza_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUjMentes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPizzaAr_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPizzaNev_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUjPizza_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBetoltesPizzak_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
