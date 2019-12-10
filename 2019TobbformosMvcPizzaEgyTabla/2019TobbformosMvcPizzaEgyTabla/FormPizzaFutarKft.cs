@@ -25,6 +25,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             this.Text = "Pizza Futar KFT.";
         }
 
+
         private void megrendelőToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControlPizzaFutarKFT.SelectTab("tabPageFutarok");
