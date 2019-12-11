@@ -35,7 +35,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
                 "CREATE TABLE `pfutar` ( " +
                 "   `fazon` int(3) NOT NULL DEFAULT '0', " +
                 "   `fnev` varchar(15) COLLATE latin2_hungarian_ci NOT NULL DEFAULT '', " +
-                "   `ftel` int(4) NOT NULL DEFAULT '0' " +
+                "   `ftel` varchar(15) COLLATE latin2_hungarian_ci NOT NULL DEFAULT '' " +
             ")ENGINE = InnoDB; ";
             string queryPrimaryKey =
                 "ALTER TABLE `pfutar`  ADD PRIMARY KEY(`fazon`); ";
