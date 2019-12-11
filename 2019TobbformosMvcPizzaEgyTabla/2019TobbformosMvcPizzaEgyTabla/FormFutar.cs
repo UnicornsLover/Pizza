@@ -180,7 +180,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 catch (RepositoryExceptionCantDelete recd)
                 {
                     kiirHibauzenetet(recd.Message);
-                    Debug.WriteLine("A Megrendelő törlés nem sikerült, nincs a listába!");
+                    Debug.WriteLine("A Futár törlés nem sikerült, nincs a listába!");
                 }
                 //2. törölni kell az adatbázisból
                 RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
@@ -238,13 +238,13 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 //3. módosítani a DataGridView-ban           
                 updateFutarDGV();
             }
-            catch (FutarNevValidation fnv)
+            catch (ModelFutarNotValidNameExeption fnv)
             {
                 errorProviderFutarNeve.SetError(textBoxFutarNev, "Hiba a névben!");
             }
-            catch (FutarTelValidation ftv)
+            catch (ModelFutarNotValidTelExeption ftv)
             {
-                errorProviderFutarTel.SetError(textBoxFutarTel, "Hiba a címben!");
+                errorProviderFutarTel.SetError(textBoxFutarTel, "Hiba a Telefonszámban!");
             }
             catch (RepositoryExceptionCantModified recm)
             {
@@ -301,13 +301,13 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 }
 
             }
-            catch (FutarNevValidation fnv)
+            catch (ModelFutarNotValidNameExeption fnv)
             {
-                errorProviderFutarNeve.SetError(textBoxFutarNev, "Hiba a névben!");
+                errorProviderFutarNeve.SetError(textBoxFutarNev, fnv.Message);
             }
-            catch (FutarTelValidation ftv)
+            catch (ModelFutarNotValidTelExeption ftv)
             {
-                errorProviderFutarTel.SetError(textBoxFutarTel, "Hiba a címben!");
+                errorProviderFutarTel.SetError(textBoxFutarTel, ftv.Message);
             }
             catch (Exception ex)
             {

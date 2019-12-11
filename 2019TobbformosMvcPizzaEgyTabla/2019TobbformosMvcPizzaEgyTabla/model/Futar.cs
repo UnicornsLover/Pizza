@@ -15,9 +15,6 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla
         public Futar(int id, string name, string tel)
         {
             this.id = id;
-            this.name = name;
-            this.tel = tel;
-
             if (!isValidName(name))
             {
                 throw new ModelFutarNotValidNameExeption("A futár neve nem megfelelő (nagy betűvel kell kezdeni a nevet) !");
@@ -25,8 +22,10 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla
 
             if (!isValidTel(tel))
             {
-                throw new ModelFutarNotValidNameExeption("A telefonszám nem megfelelő (pl: +36705462345) !");
+                throw new ModelFutarNotValidTelExeption("A telefonszám nem megfelelő (pl: +36705462345) !");
             }
+            this.name = name;
+            this.tel = tel;
         }
 
         public bool isValidName(string name)

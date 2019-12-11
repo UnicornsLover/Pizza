@@ -386,9 +386,9 @@
             this.labelPizzaAr.AutoSize = true;
             this.labelPizzaAr.Location = new System.Drawing.Point(13, 103);
             this.labelPizzaAr.Name = "labelPizzaAr";
-            this.labelPizzaAr.Size = new System.Drawing.Size(44, 13);
+            this.labelPizzaAr.Size = new System.Drawing.Size(47, 13);
             this.labelPizzaAr.TabIndex = 4;
-            this.labelPizzaAr.Text = "Pizza ár";
+            this.labelPizzaAr.Text = "Pizza ár:";
             // 
             // textBoxPizzaNev
             // 
@@ -403,9 +403,9 @@
             this.labelPizzaNev.AutoSize = true;
             this.labelPizzaNev.Location = new System.Drawing.Point(13, 65);
             this.labelPizzaNev.Name = "labelPizzaNev";
-            this.labelPizzaNev.Size = new System.Drawing.Size(53, 13);
+            this.labelPizzaNev.Size = new System.Drawing.Size(56, 13);
             this.labelPizzaNev.TabIndex = 2;
-            this.labelPizzaNev.Text = "Pizza név";
+            this.labelPizzaNev.Text = "Pizza név:";
             // 
             // textBoxPizzaAzonosito
             // 
@@ -420,9 +420,9 @@
             this.labelPizzaAzonosito.AutoSize = true;
             this.labelPizzaAzonosito.Location = new System.Drawing.Point(13, 19);
             this.labelPizzaAzonosito.Name = "labelPizzaAzonosito";
-            this.labelPizzaAzonosito.Size = new System.Drawing.Size(82, 13);
+            this.labelPizzaAzonosito.Size = new System.Drawing.Size(85, 13);
             this.labelPizzaAzonosito.TabIndex = 0;
-            this.labelPizzaAzonosito.Text = "Pizza azonosító";
+            this.labelPizzaAzonosito.Text = "Pizza azonosító:";
             // 
             // buttonUjPizza
             // 
