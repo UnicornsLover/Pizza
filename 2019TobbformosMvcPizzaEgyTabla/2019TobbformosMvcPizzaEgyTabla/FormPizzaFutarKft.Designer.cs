@@ -75,6 +75,7 @@
             this.buttonTorolFutar = new System.Windows.Forms.Button();
             this.buttonFutarUjMentes = new System.Windows.Forms.Button();
             this.panelFutar = new System.Windows.Forms.Panel();
+            this.textBoxFutarTel = new System.Windows.Forms.TextBox();
             this.labelFutarTelefonszam = new System.Windows.Forms.Label();
             this.textBoxFutarNev = new System.Windows.Forms.TextBox();
             this.labelFutarNev = new System.Windows.Forms.Label();
@@ -86,7 +87,6 @@
             this.tabPageMegrendelok = new System.Windows.Forms.TabPage();
             this.errorProviderPizzaName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPizzaPrice = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBoxFutarTel = new System.Windows.Forms.TextBox();
             this.errorProviderFutarNeve = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFutarTel = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
@@ -532,6 +532,13 @@
             this.panelFutar.TabIndex = 11;
             this.panelFutar.Visible = false;
             // 
+            // textBoxFutarTel
+            // 
+            this.textBoxFutarTel.Location = new System.Drawing.Point(113, 103);
+            this.textBoxFutarTel.Name = "textBoxFutarTel";
+            this.textBoxFutarTel.Size = new System.Drawing.Size(136, 20);
+            this.textBoxFutarTel.TabIndex = 5;
+            // 
             // labelFutarTelefonszam
             // 
             this.labelFutarTelefonszam.AutoSize = true;
@@ -592,6 +599,7 @@
             this.buttonFutarokBetoltes.TabIndex = 9;
             this.buttonFutarokBetoltes.Text = "Betöltés";
             this.buttonFutarokBetoltes.UseVisualStyleBackColor = true;
+            this.buttonFutarokBetoltes.Click += new System.EventHandler(this.buttonFutarokBetoltes_Click);
             // 
             // dataGridViewFutar
             // 
@@ -618,13 +626,6 @@
             // errorProviderPizzaPrice
             // 
             this.errorProviderPizzaPrice.ContainerControl = this;
-            // 
-            // textBoxFutarTel
-            // 
-            this.textBoxFutarTel.Location = new System.Drawing.Point(113, 103);
-            this.textBoxFutarTel.Name = "textBoxFutarTel";
-            this.textBoxFutarTel.Size = new System.Drawing.Size(136, 20);
-            this.textBoxFutarTel.TabIndex = 5;
             // 
             // errorProviderFutarNeve
             // 

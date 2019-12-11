@@ -105,6 +105,36 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             dataGridViewFutar.DataSource = futarDT;
         }
 
+        //datagridViewFutar miss
+
+        private void setFutarDGV()
+        {
+            futarDT.Columns[0].ColumnName = "Azonosító";
+            futarDT.Columns[0].Caption = "Futár azonosító";
+            futarDT.Columns[1].ColumnName = "Név";
+            futarDT.Columns[1].Caption = "Futár név";
+            futarDT.Columns[2].ColumnName = "Telefonszám";
+            futarDT.Columns[2].Caption = "Futár Telefonszám";
+
+            dataGridViewFutar.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewFutar.ReadOnly = true;
+            dataGridViewFutar.AllowUserToDeleteRows = false;
+            dataGridViewFutar.AllowUserToAddRows = false;
+            dataGridViewFutar.MultiSelect = false;
+        }
+
+        private void buttonFutarokBetoltes_Click(object sender, EventArgs e)
+        {
+            //Adatbázisban futar tábla kezelése
+            RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
+            //A repo-ba lévő futár listát feltölti az adatbázisból
+            fr.setFutarok(rfdt.getFutarFromDatabaseTable());
+            updateFutarDGV();
+            setFutarDGV();
+            FutarGombokIndulaskor();
+            dataGridViewFutar.SelectionChanged += dataGridViewFutar_SelectionChanged;
+        }
 
     }
 }
