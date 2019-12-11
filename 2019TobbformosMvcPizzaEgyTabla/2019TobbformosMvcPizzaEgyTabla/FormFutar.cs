@@ -107,6 +107,28 @@ namespace _2019TobbformosMvcPizzaEgyTabla
 
         private void dataGridViewFutar_SelectionChanged(object sender, EventArgs e)
         {
+            if (ujAdatFel)
+            {
+                KattintaskorGombok();
+            }
+            if (dataGridViewFutar.SelectedRows.Count == 1)
+            {
+                panelFutar.Visible = true;
+                panelModositTorolGombok.Visible = true;
+                buttonUjFutar.Visible = true;
+                textBoxFutarAzonosito.Text =
+                    dataGridViewFutar.SelectedRows[0].Cells[0].Value.ToString();
+                textBoxFutarNev.Text =
+                    dataGridViewFutar.SelectedRows[0].Cells[1].Value.ToString();
+                textBoxFutarTel.Text =
+                    dataGridViewFutar.SelectedRows[0].Cells[2].Value.ToString();
+            }
+            else
+            {
+                panelFutar.Visible = false;
+                panelModositTorolGombok.Visible = false;
+                buttonUjFutar.Visible = false;
+            }
 
         }
 
@@ -137,6 +159,55 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             setFutarDGV();
             FutarGombokIndulaskor();
             dataGridViewFutar.SelectionChanged += dataGridViewFutar_SelectionChanged;
+        }
+
+        private void buttonTorolFutar_Click(object sender, EventArgs e)
+        {
+            torolHibauzenetet();
+            if ((dataGridViewFutar.Rows == null) ||
+                (dataGridViewFutar.Rows.Count == 0))
+                return;
+            //A felhasználó által kiválasztott sor a DataGridView-ban            
+            int sor = dataGridViewFutar.SelectedRows[0].Index;
+            if (MessageBox.Show(
+                "Valóban törölni akarja a sort?",
+                "Törlés",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                //1. törölni kell a listából
+                int id = -1;
+                if (!int.TryParse(
+                         dataGridViewFutar.SelectedRows[0].Cells[0].Value.ToString(),
+                         out id))
+                    return;
+                try
+                {
+                    fr.deleteFutarFromListByID(id);
+                }
+                catch (RepositoryExceptionCantDelete recd)
+                {
+                    kiirHibauzenetet(recd.Message);
+                    Debug.WriteLine("A Megrendelő törlés nem sikerült, nincs a listába!");
+                }
+                //2. törölni kell az adatbázisból
+                RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
+                try
+                {
+                    //rfdt.(id);
+                }
+                catch (Exception ex)
+                {
+                    kiirHibauzenetet(ex.Message);
+                }
+                //3. frissíteni kell a DataGridView-t  
+                updateFutarDGV();
+                if (dataGridViewFutar.SelectedRows.Count <= 0)
+                {
+                    buttonUjFutar.Visible = true;
+                }
+                setFutarDGV();
+            }
         }
 
     }

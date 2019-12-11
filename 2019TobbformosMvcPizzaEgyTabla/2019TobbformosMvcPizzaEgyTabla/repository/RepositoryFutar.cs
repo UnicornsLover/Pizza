@@ -50,7 +50,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
             }
         }
 
-        public void deleteFutarFromList(int id)
+        public void deleteFutarFromListByID(int id)
         {
             Futar f = futarok.Find(x => x.getId() == id);
             if (f != null)

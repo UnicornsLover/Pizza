@@ -507,6 +507,7 @@
             this.buttonTorolFutar.TabIndex = 4;
             this.buttonTorolFutar.Text = "Töröl";
             this.buttonTorolFutar.UseVisualStyleBackColor = true;
+            this.buttonTorolFutar.Click += new System.EventHandler(this.buttonTorolFutar_Click);
             // 
             // buttonFutarUjMentes
             // 
