@@ -105,7 +105,10 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             dataGridViewFutar.DataSource = futarDT;
         }
 
-        //datagridViewFutar miss
+        private void dataGridViewFutar_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void setFutarDGV()
         {

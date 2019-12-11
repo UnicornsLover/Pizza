@@ -608,6 +608,7 @@
             this.dataGridViewFutar.Name = "dataGridViewFutar";
             this.dataGridViewFutar.Size = new System.Drawing.Size(652, 623);
             this.dataGridViewFutar.TabIndex = 1;
+            this.dataGridViewFutar.SelectionChanged += new System.EventHandler(this.dataGridViewFutar_SelectionChanged);
             // 
             // tabPageMegrendelok
             // 
