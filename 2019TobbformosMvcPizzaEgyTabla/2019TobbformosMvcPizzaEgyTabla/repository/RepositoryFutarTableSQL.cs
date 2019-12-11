@@ -50,7 +50,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
             return futarok;
         }
 
-        public void deletePizzaFromDatabase(int id)
+        public void deleteFutarFromDatabase(int id)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -70,7 +70,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
             }
         }
 
-        public void updatePizzaInDatabase(int id, Futar modified)
+        public void updateFutarInDatabase(int id, Futar modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -90,7 +90,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
             }
         }
 
-        public void insertPizzaToDatabase(Futar ujPizza)
+        public void insertFutarToDatabase(Futar ujPizza)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try

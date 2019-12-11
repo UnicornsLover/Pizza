@@ -12,6 +12,7 @@ using TobbbformosPizzaAlkalmazasEgyTabla.Repository;
 using TobbbformosPizzaAlkalmazasEgyTabla.Model;
 using System.Diagnostics;
 using TobbbformosPizzaAlkalmazasEgyTabla.repository;
+using TobbbformosPizzaAlkalmazasEgyTabla;
 
 namespace _2019TobbformosMvcPizzaEgyTabla
 {
@@ -194,7 +195,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
                 try
                 {
-                    //rfdt.(id);
+                    rfdt.deleteFutarFromDatabase(id);
                 }
                 catch (Exception ex)
                 {
@@ -210,5 +211,139 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             }
         }
 
+        private void buttonModositFutar_Click(object sender, EventArgs e)
+        {
+            torolHibauzenetet();
+            errorProviderFutarNeve.Clear();
+            errorProviderFutarTel.Clear();
+            try
+            {
+                Futar modosult = new Futar(
+                    Convert.ToInt32(textBoxFutarAzonosito.Text),
+                    textBoxFutarNev.Text,
+                    textBoxFutarTel.Text
+                    );
+                int azonosito = Convert.ToInt32(textBoxFutarAzonosito.Text);
+                //1. módosítani a listába
+                try
+                {
+                    fr.updateFutarInList(azonosito, modosult);
+                }
+                catch (Exception ex)
+                {
+                    kiirHibauzenetet(ex.Message);
+                    return;
+                }
+                //2. módosítani az adatbáziba
+                RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
+                try
+                {
+                    rfdt.updateFutarInDatabase(azonosito, modosult);
+                }
+                catch (Exception ex)
+                {
+                    kiirHibauzenetet(ex.Message);
+                }
+                //3. módosítani a DataGridView-ban           
+                updateFutarDGV();
+            }
+            catch (FutarNevValidation fnv)
+            {
+                errorProviderFutarNeve.SetError(textBoxFutarNev, "Hiba a névben!");
+            }
+            catch (FutarTelValidation ftv)
+            {
+                errorProviderFutarTel.SetError(textBoxFutarTel, "Hiba a címben!");
+            }
+            catch (RepositoryExceptionCantModified recm)
+            {
+                kiirHibauzenetet(recm.Message);
+                Debug.WriteLine("Módosítás nem sikerült, a megrendelő nincs a listába!");
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        private void buttonFutarUjMentes_Click(object sender, EventArgs e)
+        {
+            torolHibauzenetet();
+            errorProviderFutarNeve.Clear();
+            errorProviderFutarTel.Clear();
+            try
+            {
+                Futar ujF = new Futar(
+                    Convert.ToInt32(textBoxFutarAzonosito.Text),
+                    textBoxFutarNev.Text,
+                    textBoxFutarTel.Text
+                    );
+                int azonosito = Convert.ToInt32(textBoxFutarAzonosito.Text);
+                //1. Hozzáadni a listához
+                try
+                {
+
+                    fr.addFutarToList(ujF);
+
+                }
+                catch (Exception ex)
+                {
+                    kiirHibauzenetet(ex.Message);
+                    return;
+                }
+                //2. Hozzáadni az adatbázishoz
+                RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
+                try
+                {
+
+                    rfdt.insertFutarToDatabase(ujF);
+
+                }
+                catch (Exception ex)
+                {
+                    kiirHibauzenetet(ex.Message);
+                }
+                //3. Frissíteni a DataGridView-t
+                updateFutarDGV();
+                beallitGombokatUjMegrendeloMegsemEsMentes();
+                if (dataGridViewFutar.SelectedRows.Count == 1)
+                {
+                    setFutarDGV();
+                }
+
+            }
+            catch (FutarNevValidation fnv)
+            {
+                errorProviderFutarNeve.SetError(textBoxFutarNev, "Hiba a névben!");
+            }
+            catch (FutarTelValidation ftv)
+            {
+                errorProviderFutarTel.SetError(textBoxFutarTel, "Hiba a címben!");
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private void buttonUjFutar_Click(object sender, EventArgs e)
+        {
+            ujAdatFel = true;
+            beallitGombokatTextboxokatUjMegrendelonel();
+            int ujFutarAz = fr.getNextFutarId();
+            textBoxFutarAzonosito.Text = ujFutarAz.ToString();
+        }
+
+        private void buttonFutarMegsem_Click(object sender, EventArgs e)
+        {
+            beallitGombokatUjMegrendeloMegsemEsMentes();
+        }
+
+        private void textBoxFutarNev_TextChanged(object sender, EventArgs e)
+        {
+            ujMegsemGombokKezelese();
+        }
+
+        private void textBoxFutarTel_TextChanged(object sender, EventArgs e)
+        {
+            ujMegsemGombokKezelese();
+        }
     }
 }

@@ -479,6 +479,7 @@
             this.buttonFutarMegsem.Text = "Mégsem";
             this.buttonFutarMegsem.UseVisualStyleBackColor = true;
             this.buttonFutarMegsem.Visible = false;
+            this.buttonFutarMegsem.Click += new System.EventHandler(this.buttonFutarMegsem_Click);
             // 
             // panelModositTorolGombok2
             // 
@@ -498,6 +499,7 @@
             this.buttonModositFutar.TabIndex = 3;
             this.buttonModositFutar.Text = "Módosít";
             this.buttonModositFutar.UseVisualStyleBackColor = true;
+            this.buttonModositFutar.Click += new System.EventHandler(this.buttonModositFutar_Click);
             // 
             // buttonTorolFutar
             // 
@@ -518,6 +520,7 @@
             this.buttonFutarUjMentes.Text = "Új mentése";
             this.buttonFutarUjMentes.UseVisualStyleBackColor = true;
             this.buttonFutarUjMentes.Visible = false;
+            this.buttonFutarUjMentes.Click += new System.EventHandler(this.buttonFutarUjMentes_Click);
             // 
             // panelFutar
             // 
@@ -539,6 +542,7 @@
             this.textBoxFutarTel.Name = "textBoxFutarTel";
             this.textBoxFutarTel.Size = new System.Drawing.Size(136, 20);
             this.textBoxFutarTel.TabIndex = 5;
+            this.textBoxFutarTel.TextChanged += new System.EventHandler(this.textBoxFutarTel_TextChanged);
             // 
             // labelFutarTelefonszam
             // 
@@ -555,6 +559,7 @@
             this.textBoxFutarNev.Name = "textBoxFutarNev";
             this.textBoxFutarNev.Size = new System.Drawing.Size(136, 20);
             this.textBoxFutarNev.TabIndex = 3;
+            this.textBoxFutarNev.TextChanged += new System.EventHandler(this.textBoxFutarNev_TextChanged);
             // 
             // labelFutarNev
             // 
@@ -591,6 +596,7 @@
             this.buttonUjFutar.Text = "Új";
             this.buttonUjFutar.UseVisualStyleBackColor = true;
             this.buttonUjFutar.Visible = false;
+            this.buttonUjFutar.Click += new System.EventHandler(this.buttonUjFutar_Click);
             // 
             // buttonFutarokBetoltes
             // 
