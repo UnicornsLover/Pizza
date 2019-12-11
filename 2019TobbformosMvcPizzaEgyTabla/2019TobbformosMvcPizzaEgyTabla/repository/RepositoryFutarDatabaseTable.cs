@@ -64,7 +64,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
         /// <summary>
         /// pizza tábla törlése csarp adatbázisból
         /// </summary>
-        public void deleteTablePizza()
+        public void deleteTableFutar()
         {
             string query =
                 "USE csarp; " +
@@ -87,7 +87,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
             }
         }
 
-        public void deleteDataFromTable()
+        public void deleteDataFromPfutarTable()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try

@@ -11,7 +11,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
 {
     partial class RepositoryFutarDatabaseTable
     {
-        public void fillPizzasWithTestDataFromSQLCommand()
+        public void fillFutarokWithTestDataFromSQLCommand()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
