@@ -36,7 +36,6 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             frissitAdatokkalDataGriedViewt();
             beallitPizzaDataGriViewt();
             beallitGombokatIndulaskor();            
-
             dataGridViewPizzak.SelectionChanged += DataGridViewPizzak_SelectionChanged;
         }
 

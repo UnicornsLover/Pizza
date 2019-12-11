@@ -32,10 +32,9 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         private void ujMegsemGombokKezelese()
         {
             if (ujAdatFel == false)
-            {
                 return;
-            }  
-            if ((textBoxFutarNev.Text != string.Empty) || (textBoxFutarTel.Text != string.Empty))
+            if ((textBoxFutarNev.Text != string.Empty) ||
+                (textBoxFutarTel.Text != string.Empty))
             {
                 buttonFutarUjMentes.Visible = true;
                 buttonFutarMegsem.Visible = true;
@@ -50,39 +49,31 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         private void FutarGombokIndulaskor()
         {
             panelFutar.Visible = false;
-            panelModositTorolGombok.Visible = false;
+            panelModositTorolGombok2.Visible = false;
             if (dataGridViewFutar.SelectedRows.Count != 0)
-            {
                 buttonUjFutar.Visible = false;
-            }
             else
-            {
                 buttonUjFutar.Visible = true;
-            }
-            buttonFutarMegsem.Visible = false;
-            buttonFutarUjMentes.Visible = false;
-
         }
 
         private void beallitGombokatUjMegrendeloMegsemEsMentes()
         {
-            if ((dataGridViewFutar.Rows != null) && (dataGridViewFutar.Rows.Count > 0))
-            {
+            if ((dataGridViewFutar.Rows != null) &&
+                (dataGridViewFutar.Rows.Count > 0))
                 dataGridViewFutar.Rows[0].Selected = true;
-            }
             buttonFutarUjMentes.Visible = false;
             buttonFutarMegsem.Visible = false;
-            panelModositTorolGombok.Visible = true;
+            panelModositTorolGombok2.Visible = true;
             ujAdatFel = false;
 
-            textBoxFutarNev.Text = string.Empty;
-            textBoxFutarTel.Text = string.Empty;
+            textBoxPizzaNev.Text = string.Empty;
+            textBoxPizzaAr.Text = string.Empty;
         }
 
-        private void beallitGombokatTextboxokatUjMegrendelonel()
+        private void beallitGombokatTextboxokatUjFutarnal()
         {
             panelFutar.Visible = true;
-            panelModositTorolGombok.Visible = false;
+            panelModositTorolGombok2.Visible = false;
             textBoxFutarNev.Text = string.Empty;
             textBoxFutarTel.Text = string.Empty;
         }
@@ -92,7 +83,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             ujAdatFel = false;
             buttonFutarUjMentes.Visible = false;
             buttonFutarMegsem.Visible = false;
-            panelModositTorolGombok.Visible = true;
+            panelModositTorolGombok2.Visible = true;
             errorProviderFutarNeve.Clear();
             errorProviderFutarTel.Clear();
         }
@@ -115,7 +106,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             if (dataGridViewFutar.SelectedRows.Count == 1)
             {
                 panelFutar.Visible = true;
-                panelModositTorolGombok.Visible = true;
+                panelModositTorolGombok2.Visible = true;
                 buttonUjFutar.Visible = true;
                 textBoxFutarAzonosito.Text =
                     dataGridViewFutar.SelectedRows[0].Cells[0].Value.ToString();
@@ -326,7 +317,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         private void buttonUjFutar_Click(object sender, EventArgs e)
         {
             ujAdatFel = true;
-            beallitGombokatTextboxokatUjMegrendelonel();
+            beallitGombokatTextboxokatUjFutarnal();
             int ujFutarAz = fr.getNextFutarId();
             textBoxFutarAzonosito.Text = ujFutarAz.ToString();
         }

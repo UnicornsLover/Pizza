@@ -20,11 +20,11 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
 
                 string query =
                     "INSERT INTO `pfutar` (`fazon`, `fnev`, `ftel`) VALUES " +
-                            " (1, 'István', +36705468974), " +
-                            " (2, 'Anna', +36202368874), " +
-                            " (3, 'Éva', +36705468974), " +
-                            " (4, 'Ildikó', +36305423974), " +
-                            " (5, 'József', +36702108974); ";
+                            " (1, 'István', '+36705468974'), " +
+                            " (2, 'Anna', '+36202368874'), " +
+                            " (3, 'Éva', '+36705468974'), " +
+                            " (4, 'Ildikó', '+36305423974'), " +
+                            " (5, 'József', '+36702108974'); ";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
